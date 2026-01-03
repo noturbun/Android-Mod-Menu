@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-${{ matrix.build_type }}-apk
-          path: app/build/outputs/apk/${{ github.event.inputs.build_type == 'Release' && 'release' || 'debug' }}/*.apk
+          path: app/build/outputs/apk/${{ matrix.build_type }}/app-*.apk
