@@ -29,10 +29,10 @@ jobs:
         run: chmod +x gradlew
 
       - name: Assemble ${{ matrix.build_type }} APK
-        run: ./gradlew :core:app:assemble${{ matrix.build_type }}
+        run: ./gradlew app:assemble${{ matrix.build_type }}
         
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-${{ matrix.build_type }}-apk
-          path: core/app/build/outputs/apk/${{ github.event.inputs.build_type == 'Release' && 'release' || 'debug' }}/*.apk
+          path: app/build/outputs/apk/${{ github.event.inputs.build_type == 'Release' && 'release' || 'debug' }}/*.apk
